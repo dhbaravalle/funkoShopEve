@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Regístrate :)</title>
+    <LINK REL=StyleSheet href='/css/register.css'>
+    <link rel="icon" type="image/png" href="/images/LOGO2.png"/>
+</head>
+
+<body>
+    
+    <div class="caja-login">
+        <a href="/"><img class ='logo' src="/images/LOGO2.png" alt='LOGO'></a>
+        <form action="/users/register" method="POST" enctype="multipart/form-data">
+            <!-- FOTO DE PERFIL -->
+            <label for="profilepic">Imagen de Perfil</label>
+            <input type="file" name="profileimg" accept="image/x-png,image/jpeg" class="botonsubir"/>
+            <!-- NOMBRE COMPLETO -->
+            <label for="">Nombre completo:</label>
+            <input type="text" placeholder="Peter Parker" name="name" tabindex="1"
+            class="<%= locals.errores && errores.name ? 'is-invalid' : null %>"
+            value="<%= locals.old && old.name ? old.name : '' %>">
+                <!-- Mensaje de error para nombre -->
+                <% if(locals.errores && errores.name) { %>
+                    <div class="text-danger">
+                        <%= errores.name.msg %>
+                    </div>
+                <% } %>
+            <!-- CORREO ELECTRONICO -->
+            <label for="">Correo electronico:</label>
+            <input type="text" placeholder="micorreo@email.com" name="email" tabindex="2"
+            class="<%= locals.errores && errores.email ? 'is-invalid' : null %>"
+            value="<%= locals.old && old.email ? old.email : '' %>">
+                <!-- Mensaje de error para correo -->
+                <% if(locals.errores && errores.email) { %>
+                    <div class="text-danger">
+                        <%= errores.email.msg %>
+                    </div>
+                <% } %>
+            <!--CONTRASEÑA-->
+            <label for="">Contraseña:</label>
+                <input type="password" placeholder="Escribe tu contraseña" name="password" tabindex="3"
+                class="<%= locals.errores && errores.password ? 'is-invalid' : null %>">
+                <!-- Mensaje de error para contraseña -->
+                <% if(locals.errores && errores.password) { %>
+                    <div class="text-danger">
+                        <%= errores.password.msg %>
+                    </div>
+                <% } %>
+            <!--BOTON-->
+            <input type="submit" value="Registrarme" class="botonregister">
+            <!--AYUDAS LINKEADAS-->
+            <a href="../users/login">¿Ya tienes cuenta? Inicia sesión</a>
+            
+        </form>
+    </div>
+            
+
+</body>
+</html>

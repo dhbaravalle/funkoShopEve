@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/dd4e815baa.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/dd8af2371b.js" crossorigin="anonymous"></script>
+        <LINK REL=StyleSheet href='/css/profile.css'>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+        <meta name='viewport' content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/images/LOGO2.png"/>
+        <meta charset="utf-8" />
+        <title>Funko Shop</title>
+        <script>
+            function openSlideMenu(){
+                document.getElementById('menu').style.width='80vw'
+                document.getElementById('content').style.marginLeft='0vw'
+            }
+        
+            function closeSlideMenu(){
+                document.getElementById('menu').style.width='0'
+                document.getElementById('content').style.marginLeft='0'
+            }
+        </script>
+    </head> <!--TERMINA HEAD DE PROFILE-->
+    <body>
+        <div id="content">
+            <header><!--HEADER-->
+              <div id="pruebaflex">
+                <span class="slide"><!--slider-->
+                    <a href="#" onclick="openSlideMenu()">
+                 <i class="fas fa-bars"></i></a>
+              </span>
+        
+              <a href="/"><img class="logo" src="/images/LOGO2.png" alt='LOGO'></a><!--LOGO-->
+              <a href="/"><img class="logovertical" src="/images/logo-funkoShop.png" alt='LOGO'></a><!--LOGO(ACTUALMENTE SIN USO)-->
+             
+              <span class="logosder"><!--Carrito y user logos-->
+                 <a href="/users/login"><i class="fas fa-user" id="usercarrito"></i></a></br>
+                 <a href="/products/cart"><i class="fas fa-shopping-cart" id="usercarrito"></i></a>
+              </span>
+           </div>
+              
+              <div id="menu" class="nav"><!--BARRA DE NAVEGACION MOBILE-->
+                 <a href="#" class="close" onclick="closeSlideMenu()">
+                 <i class="fas fa-times"></i></a>
+                 <a href="#"><img class='imagenBarraAbierta' alt="MiniFunko" src='/images/batmanfunko.jpg'>Héroes</a>
+                 <a href="#"><img class='imagenBarraAbierta' alt="MiniFunko" src='/images/dwightFunko.jpg'>Series</a>
+                 <a href="#"><img class='imagenBarraAbierta' alt="MiniFunko" src='/images/jackFunko.jpg'>Películas</a>
+                 <a href="#"><img class='imagenBarraAbierta' alt="MiniFunko" src='/images/otrosFunko.jpg'>Originales</a>
+                 <a href="#"><img class='imagenBarraAbierta' alt="MiniFunko" src='/images/koolaidFunko.jpg'>Todos</a>
+              </div><!--TERMINA BARRA DE NAVEGACION MOBILE-->
+                 </header>
+             </div>
+             <section >
+                 <div>
+                     <img src="/images/profile_pics/avatar_default.png" class="profilepic">
+
+                 </div>
+             </section>
+        
+        <%- include('../partials/footer')%>
+    </body>
+</html>

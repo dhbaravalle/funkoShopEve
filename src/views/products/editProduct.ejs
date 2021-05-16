@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <%- include('.././partials/headIndexBarraLat')%>
+    <body>
+        <h1>Editar un Producto:</h1><br>
+        <form action="/editProduct" method="GET" id="createProduct">
+            <label for="idProductEdit">ID del Producto:</label>
+            <input type="text" name="idProductEdit"><br>
+            <label for="nameProductEdit">Nombre del Producto:</label>
+            <input type="text" name="nameProductEdit"><br>
+            <label for="descripEditProduct">Descripción:</label>
+            <input type="text" name="descripEditProduct"><br>
+            <label for="precioEditProduct">Precio:</label>
+            <input type="text" name="precioEditProduct"><br>
+            <label for="categoryEditProduct">Categoría:</label>
+            <input type="text" name="categoryEditProduct"><br>
+            <button type="submit" class="addcart" formmethod="POST">Editar Producto</button><br>
+            <button type="submit" class="addcart" formmethod="#">Eliminar Producto solor por ID(No funciona por ahora)</button>
+          </form>
+    </body>
+</html>

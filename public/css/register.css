@@ -1,0 +1,114 @@
+img{
+    max-width: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../images/fondo-robin.jpg) no-repeat center top;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.caja-login {
+    width: 320px;
+    height: 450px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 8%;
+
+}
+.caja-login .logo{
+    width: 64%;
+    height: 22%;
+    position: absolute;
+    top: 0%;
+    right: 18%;
+}
+.caja-login label{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+.caja-login h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.caja-login input{
+    width: 100%;
+    margin-bottom: 10px;
+    
+
+}
+.caja-login input[type= "email"],
+.caja-login input[type="text"],
+.caja-login input[type= "password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 1s;
+    
+}
+
+.botonregister{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #3C76B9;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    transition-duration: 1s;
+    cursor: pointer;
+
+
+}
+.botonsubir{
+    position: relative;
+    top: 6px;
+    right: 5px;
+    background: #3C76B9;
+    color: #fff;
+    border-radius: 20px;
+    transition-duration: 1s;
+    cursor: pointer;
+}
+.caja-login input[type="submit"]:hover{
+    color:#fff;
+    background: #CC1100;
+}
+.caja-login a{
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 10px;
+    color: darkgray;
+    transition-duration: 1s;
+    margin-left:8%;
+
+}
+.caja-login a:hover{
+    color: #fff;
+}
+/* Para el texto de validar en formulario */
+.text-danger {
+    color: red;
+    margin: 10px;
+    font-size: 13px;
+}
+.is-invalid {
+    border: red solid 0.5px;
+}

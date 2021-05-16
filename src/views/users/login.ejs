@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio de sesión</title>
+    <LINK REL=StyleSheet href='/css/login.css'>
+        <link rel="icon" type="image/png" href="/images/LOGO2.png" />
+
+</head>
+
+<body>
+    
+    <div class="caja-login">
+        <a href="/"><img class ='logo' src="/images/LOGO2.png" alt='LOGO'></a>
+        <h1>Iniciar sesión</h1>
+        <form action="/users/login" method="POST">
+            <!-- CORREO ELECTRONICO -->
+            <label for="">Correo electronico:</label>
+            <input type="text" placeholder="micorreo@email.com" name="email" tabindex="1"
+            class="<%= locals.errores && errores.email ? 'is-invalid' : null %>"
+            value="<%= locals.old && old.email ? old.email : '' %>">
+                <!-- Mensaje de error para correo -->
+                <% if(locals.errores && errores.email) { %>
+                    <div class="text-danger">
+                        <%= errores.email.msg %>
+                    </div>
+                <% } %>
+            <!--CONTRASEÑA-->
+            <label for="">Contraseña:</label>
+                <input type="password" placeholder="Escribe tu contraseña" name="password" tabindex="2"
+                class="<%= locals.errores && errores.password ? 'is-invalid' : null %>">
+                <!-- Mensaje de error para contraseña -->
+                <% if(locals.errores && errores.password) { %>
+                    <div class="text-danger">
+                        <%= errores.password.msg %>
+                    </div>
+                <% } %>
+            <!--RECORDAR SESION-->
+            <label for=""><input type="checkbox" name="recordar">Recordar sesión</label>0
+            <!--BOTON-->
+            <input type="submit" value="Ingresar" tabindex="3">
+            <!--AYUDAS LINKEADAS-->
+            <a href="#">¿Olvidaste tu contraseña?</a><br>
+            <a href="./register">¿No tienes cuenta? REGÍSTRATE</a>
+
+        </form>
+    </div>
+            
+
+</body>
+</html>

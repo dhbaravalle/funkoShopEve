@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <%- include('.././partials/headIndexBarraLat')%>
+    <body>
+        <h1>Crear un nuevo Producto:</h1><br>
+        <form action="/createProduct" method="GET" id="createProduct">
+            <label for="nombreNewProduct">Nombre del Producto:</label>
+            <input type="text" name="nombreNewProduct"><br>
+            <label for="descripNewProduct">Descripción:</label>
+            <input type="text" name="descripNewProduct"><br>
+            <label for="precioNewProduct">Precio:</label>
+            <input type="text" name="precioNewProduct"><br>
+            <label for="categoryNewProduct">Categoría:</label>
+            <input type="text" name="categoryNewProduct"><br>
+            <label for="file">Imagen del Producto:</label>
+            <input type="file" name="imagenNewProduct" accept="image/*"><br>
+            <button type="submit" class="addcart" formmethod="POST">Crear Producto</button>
+          </form>
+    </body>
+</html>
