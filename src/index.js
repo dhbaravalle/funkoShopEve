@@ -12,7 +12,8 @@ const port=3000;
 //TERMINA REQUIRES//
 
 app.set('view engine', 'ejs')
-app.use(express.static(__dirname + '/public'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Nuevos app.use y middlewares
 // para POST

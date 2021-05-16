@@ -9,8 +9,6 @@ const Users = require(".././database/models/Users.js");
 // Acceso a database
 const usersDataBase = path.join(__dirname, "../data/users.json");
 
-
-
 // Controlador usuarios
 const userController = {
     // GET de login
@@ -22,9 +20,9 @@ const userController = {
         res.render('./users/register');
     },
     profile: function(req, res){
-        res.render('./users/profile')},
-
-        
+        res.render('./users/profile')
+    },
+    
     // POST de login
     loginProcess: function (req,res){
         let errores = validationResult(req);
@@ -71,46 +69,46 @@ const userController = {
             })
         }
     },
-
+    
     // POST de register
     create: function (req,res){
-    let errores = validationResult(req);
-    // si hay errores, mostrarlos en texto
-    if(!errores.isEmpty()){
-        return res.render('./users/register', {
-            errores: errores.mapped(),
-            old: req.body
-        });
-    }
-    // comprobar si el email está en uso
-    let userOnDB = db.Users.findOne({
-        where:{
-            user_email: (req.body.email)
+        let errores = validationResult(req);
+        // si hay errores, mostrarlos en texto
+        if(!errores.isEmpty()){
+            return res.render('./users/register', {
+                errores: errores.mapped(),
+                old: req.body
+            });
         }
-    }).then(function(usuario){
-            return usuario
+        // comprobar si el email está en uso
+        db.Users.findOne({
+            where:{
+                user_email: req.body.email
+            }
         })
-        
-    if(userOnDB!=undefined) {
-        return res.render('./users/register', {
-            errores: {
-                email: {
-                    msg: "Este e-mail ya está en uso."
-                }
-            },
-            old: req.body
-        })
+        .then(function(respuestaDelFindOne){
+            if(respuestaDelFindOne != null) {
+                return res.render('./users/register', {
+                    errores: {
+                        email: {
+                            msg: "Este e-mail ya está en uso."
+                        }
+                    },
+                    old: req.body
+                })
+            } else {
+                db.Users.create({
+                    user_name: req.body.name,
+                    user_email: req.body.email,
+                    // encriptar password
+                    password: bcrypt.hashSync(req.body.password, 10)
+                })
+                .then(function() {
+                    return res.redirect("/users/login")
+                })
+            }
+        })  
     }
-    // Crear usuario en la data
-    let userToCreate = db.Users.create({
-        user_name: "req.body.name",
-        user_email:"req.body.email",
-        // encriptar password
-        password: "bcrypt.hashSync(req.body.password, 10)"
-    })
-    return res.redirect("./users/login")
-}
-
 }
 
 module.exports = userController;

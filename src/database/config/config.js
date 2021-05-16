@@ -1,8 +1,8 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "everaldoSQL123",
-    "database": "FunkoShop",
+    "password": "",
+    "database": "funkoshop",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
